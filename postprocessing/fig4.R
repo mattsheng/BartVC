@@ -1,5 +1,4 @@
 set.seed(123)
-setwd("~/Dropbox/Research/2025/BartVC/")
 library(arrow)
 library(ggplot2)
 library(dplyr)
