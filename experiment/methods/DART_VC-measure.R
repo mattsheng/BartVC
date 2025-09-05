@@ -1,8 +1,7 @@
-options(java.parameters = c("-Xmx20g", "-XX:ParallelGCThreads=1"))
+options(java.parameters = c("-Xmx16g", "-XX:ParallelGCThreads=1"))
 library(dartMachine)
 
 runBART <- function(dat, seed, rep){
-  # Set seed for reproducibility (optional)
   set.seed(seed)
   seeds <- sample.int(10000, size = rep)
   
@@ -24,7 +23,8 @@ runBART <- function(dat, seed, rep){
                       serialize = FALSE,
                       seed = seeds[r],
                       verbose = FALSE,
-                      do_ard = TRUE)
+                      do_ard = TRUE,
+                      do_prior = TRUE)
     vc_full <- get_var_counts_over_chain(dm)
     vip[r, ] <- get_var_props_over_chain(dm)
     vc[r, ] <- colMeans(vc_full)

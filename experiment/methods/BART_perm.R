@@ -1,8 +1,7 @@
-options(java.parameters = c("-Xmx20g", "-XX:ParallelGCThreads=1"))
+options(java.parameters = c("-Xmx16g", "-XX:ParallelGCThreads=1"))
 library(bartMachine)
 
 runBART <- function(dat, seed, rep){
-  # Set seed for reproducibility (optional)
   set.seed(seed)
   
   # Prepare input data to bartMachine

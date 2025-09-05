@@ -1,5 +1,5 @@
 set.seed(123)
-setwd("~/Dropbox/Research/2025/VC/")
+setwd("~/Dropbox/Research/2025/BartVC/")
 library(arrow)
 library(ggplot2)
 library(dplyr)
@@ -60,3 +60,15 @@ FPR_summary <- summary_df_2 %>%
 p13 <- feynman_SR_plot(FPR_summary, xlab = "SNR", ylab = "FPR", title = "")
 ggsave("figs/fig13_FPR_DART_vs_BART_VC-measure.pdf", plot = p13,
        device = cairo_pdf, width = 10, height = 6.5)
+
+# Runtime comparison
+runtime <- df %>%
+  group_by(dataset_name, n, p, Algorithm) %>%
+  summarize(time = mean(Runtime),
+            .groups = 'drop') %>%
+  group_by(n, p, Algorithm) %>%
+  summarize(time = mean(time),
+            .groups = 'drop') %>%
+  group_by(n, Algorithm) %>%
+  summarize(time = mean(time),
+            .groups = 'drop')

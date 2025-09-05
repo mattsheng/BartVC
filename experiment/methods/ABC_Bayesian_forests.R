@@ -1,7 +1,6 @@
 library(ABCforest)
 
 runBART <- function(dat, seed, rep){
-  # Set seed for reproducibility (optional)
   set.seed(seed)
   
   # Prepare input data to bartMachine

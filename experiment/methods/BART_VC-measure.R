@@ -1,14 +1,12 @@
-options(java.parameters = c("-Xmx20g", "-XX:ParallelGCThreads=1"))
+options(java.parameters = c("-Xmx16g", "-XX:ParallelGCThreads=1"))
 library(bartMachine)
 
 runBART <- function(dat, seed, rep){
-  # Set seed for reproducibility (optional)
   set.seed(seed)
   
   # Prepare input data to bartMachine
   y <- dat[, 1]
   X <- as.data.frame(dat[, -1])
-  # R <- 50 # number of chains for BART
   
   bm <- bartMachine(X = X,
                     y = y,
@@ -32,5 +30,5 @@ runBART <- function(dat, seed, rep){
   vc_rank <- t(apply(vc, 1, function(x) rank(-x)))
 
   return(list(vip = vip, vip_rank = vip_rank, 
-              vc = vc, vc_rank = vc_rank)
+              vc = vc, vc_rank = vc_rank))
 }
