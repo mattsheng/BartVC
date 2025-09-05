@@ -1,1 +1,6 @@
 results/no_idx/
+testing/
+.Rproj.user
+*.Rproj
+.Rbuildignore
+*.Rproj.user
