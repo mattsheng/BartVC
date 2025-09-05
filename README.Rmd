@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-BartVC implements the VC-measure based nonparametric variable selection method introduce in [arxiv](http://arxiv.org). The current package utilizes Dirichlet Additive Regression Trees ([DART](https://www.tandfonline.com/doi/full/10.1080/01621459.2016.1264957)) as the nonparametric model, though other Bayesian tree ensemble models can also be used. We refer to VC-measure with DART backend as *DART VC-measure*.
+BartVC implements the VC-measure based nonparametric variable selection method introduce in [arxiv](http://arxiv.org). The current package utilizes Dirichlet Additive Regression Trees ([DART](https://www.tandfonline.com/doi/full/10.1080/01621459.2016.1264957)) as the nonparametric model, though other Bayesian tree ensemble models can also be used. We refer to VC-measure with DART backend as **DART VC-measure**.
 
 ## Backends
 
@@ -41,6 +41,7 @@ devtools::install_github("mattsheng/BartVC")
 We demonstrate DART VC-measure using the Friedman equation:
 
 $$y = 10\sin(\pi x_1x_2) + 20(x_3-0.5)^2 + 10x_4 + 5x_5 + \varepsilon,$$
+
 where $\varepsilon \sim N(0, 2^2)$. Predictors $x_1,\ldots,x_{100}$ are sampled iid from an Uniform(0, 1) distribution. The goal is to identify the truly relevant predictors, namely $(x_1,x_2,x_3,x_4,x_5)$, from all $p=100$ predictors.
 
 To use the `dartMachine` backend, we must allocate memory for Java before loading the `BartVC` package:
